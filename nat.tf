@@ -10,7 +10,7 @@ resource "aws_nat_gateway" "levelup-nat-gw" {
 }
 
 resource "aws_route_table" "levelup-private" {
-  vpc_id = aws_vpc.levelupvpc.id
+  vpc_id = aws_vpc.levelup_vpc.id
   route {
     cidr_block     = "0.0.0.0/0"
     nat_gateway_id = aws_nat_gateway.levelup-nat-gw.id
