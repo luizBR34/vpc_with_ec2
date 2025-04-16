@@ -82,7 +82,7 @@ resource "aws_subnet" "levelup_vpc_private_3" {
 
 # Custom internet Gateway
 resource "aws_internet_gateway" "levelup-gw" {
-  vpc_id = aws_vpc.levelupvpc.id
+  vpc_id = aws_vpc.levelup_vpc.id
 
   tags = {
     Name = "levelup-gw"
@@ -91,7 +91,7 @@ resource "aws_internet_gateway" "levelup-gw" {
 
 #Routing Table for the Custom VPC
 resource "aws_route_table" "levelup-public" {
-  vpc_id = aws_vpc.levelupvpc.id
+  vpc_id = aws_vpc.levelup_vpc.id
   route {
     cidr_block = "0.0.0.0/0"
     gateway_id = aws_internet_gateway.levelup-gw.id
